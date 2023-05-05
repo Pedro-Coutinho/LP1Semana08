@@ -8,13 +8,13 @@ namespace GameUnits
     public class MilitatyUnit : Unit
     {
 
-        public int AttacPower{get;}
+        public int AttackPower{get;}
         public int XP {get; private set;}
         public override int Health { get => base.Health + XP;}
-        public override float Cost => AttacPower + XP;
+        public override float Cost => AttackPower + XP;
         public MilitatyUnit(int mov, int health, int attackPower) : base(mov, health)
         {
-            AttacPower = attackPower;
+            AttackPower = attackPower;
             XP = 0;
         }
 
@@ -22,6 +22,11 @@ namespace GameUnits
         {
             XP++;
             u.Health--;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" AP={this.AttackPower} COST={this.XP}" ;
         }
     }
 }
